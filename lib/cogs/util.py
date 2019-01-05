@@ -1,0 +1,31 @@
+from discord.ext import commands
+
+from lib import short_url
+from lib import translate
+# discord cog
+class UtilityCommands:
+    """
+    ユーティリティーコマンド
+    """
+    def __init__(self, bot):
+        self.bot = bot
+    
+    #commands
+    @commands.command(aliases=["shorturl"])
+    async def shorten_url(self, ctx, url):
+        """
+        bit.lyを使ってURLを短くして返すぞ！！！！！
+        """
+        reply = short_url.get_shortenURL(url)
+        await ctx.send(reply)
+
+    @commands.command()
+    async def trans(self, ctx, target, *text):
+        """
+        GASを使って翻訳するぞ、翻訳。
+        """
+        reply = translate.translate(text, "", target)
+        await ctx.send(reply)
+# Bot本体側からCogを読み込む際に呼び出される関数.
+def setup(bot):
+    bot.add_cog(UtilityCommands(bot))

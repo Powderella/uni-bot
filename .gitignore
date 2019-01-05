@@ -1,0 +1,6 @@
+__pycache__
+__init__.py
+*.mp3
+*.bak
+*.dat
+*.dir

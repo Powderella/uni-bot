@@ -34,9 +34,11 @@ class UtilityCommands:
         uni-botのURLを返すぞ
         """
         em = discord.Embed(
-            title="uni-bot"
+            title="uni-bot",
             url="https://github.com/Powderella/uni-bot"
         )
+
+        ctx.send(embed=em)
 # Bot本体側からCogを読み込む際に呼び出される関数.
 def setup(bot):
     bot.add_cog(UtilityCommands(bot))

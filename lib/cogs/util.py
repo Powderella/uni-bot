@@ -1,3 +1,4 @@
+import discord
 from discord.ext import commands
 
 from lib import short_url
@@ -26,6 +27,16 @@ class UtilityCommands:
         """
         reply = translate.translate(text, "", target)
         await ctx.send(reply)
+    
+    @commands.command()
+    async def github(self, ctx):
+        """
+        uni-botのURLを返すぞ
+        """
+        em = discord.Embed(
+            title="uni-bot"
+            url="https://github.com/Powderella/uni-bot"
+        )
 # Bot本体側からCogを読み込む際に呼び出される関数.
 def setup(bot):
     bot.add_cog(UtilityCommands(bot))

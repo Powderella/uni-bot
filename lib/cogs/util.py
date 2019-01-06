@@ -38,7 +38,7 @@ class UtilityCommands:
             url="https://github.com/Powderella/uni-bot"
         )
 
-        ctx.send(embed=em)
+        await ctx.send(embed=em)
 # Bot本体側からCogを読み込む際に呼び出される関数.
 def setup(bot):
     bot.add_cog(UtilityCommands(bot))

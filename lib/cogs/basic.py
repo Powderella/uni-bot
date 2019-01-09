@@ -9,32 +9,37 @@ class BasicCommands:
     #commands
     @commands.command()
     async def hello(self, ctx):
+        """
+        あいさつします！
+        """
         reply = "Hello, {0}".format(ctx.author)
         await ctx.send(reply)
 
     @commands.command()
     async def shutdown(self, ctx):
-        #if return
+        """
+        さよならします！(プログラムを終了する)
+        """
         reply = "byebye!!"
         await ctx.send(reply)
         exit()
     
     @commands.command()
     async def reboot(self, ctx):
+        """
+        再起動する！
+        """
         import subprocess
         reply = "再起動します。"
         await ctx.send(reply)
         subprocess.Popen("py main.py")
         exit()
-    
-    @commands.command()
-    async def now(self, ctx):
-        from datetime import datetime
-        reply = str(datetime.now())
-        await ctx.send(reply)
 
-    @commands.command()
-    async def eval(self, ctx, message):
+    @commands.command(name="eval")
+    async def eval_(self, ctx, message):
+        """
+        計算する.
+        """
         reply = str(eval(message))
         await ctx.send(reply)
 
